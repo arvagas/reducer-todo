@@ -1,0 +1,4 @@
+[build]
+base = "todo-reducer/"
+publish = "todo-reducer/build/"
+command = "yarn build"

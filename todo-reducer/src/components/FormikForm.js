@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Field, withFormik } from 'formik'
 
-const AddTodo = ({ dispatch }) => {
+const AddTodo = ({ clearCompleted }) => {
     return (
         <Form>
             <label>
@@ -10,7 +10,7 @@ const AddTodo = ({ dispatch }) => {
             </label>
 
             <button type='submit'>Add New</button>
-            <button type='button' onClick={() => dispatch({ type: 'CLEAR_COMPLETED' })}>Clear Completed</button>
+            <button type='button' onClick={event => clearCompleted(event)}>Clear Completed</button>
         </Form>
     )
 }
@@ -23,7 +23,7 @@ const FormikForm = withFormik({
     },
 
     handleSubmit(values, { props, resetForm, setSubmitting }) {
-        props.dispatch({type: 'ADD_ITEM', payload: values.todo})
+        props.addItem(values.todo)
         resetForm()
         setSubmitting(false)
     }

@@ -10,11 +10,24 @@ import './App.css'
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  const addItem = (newTask) => {
+    dispatch({type: 'ADD_ITEM', payload: newTask})
+  }
+
+  const toggleItem = (task) => {
+    dispatch({ type: 'TOGGLE_ITEM', payload: task.id })
+  }
+  
+  const clearCompleted = (event) => {
+    event.preventDefault()
+    dispatch({ type: 'CLEAR_COMPLETED' })
+  }
+
   return (
     <div>
       {/* {console.log(state)} */}
-      <FormikForm dispatch={dispatch} />
-      <TodoList taskList={state} dispatch={dispatch}/>
+      <FormikForm addItem={addItem} clearCompleted={clearCompleted} />
+      <TodoList taskList={state} toggleItem={toggleItem}/>
     </div>
   )
 }

@@ -1,28 +1,34 @@
+import moment from 'moment'
+
 export const initialState = {
     tasks: [
     {
         item: 'Learn about reducers',
         completed: false,
         id: 3892987589,
-        deadline: 'August 13, 2019'
+        completedDate: '',
+        deadline: '2019-08-13'
     },
     {
         item: 'Summon Cthulu',
         completed: false,
         id: 5037583920,
-        deadline: 'February 29, 1928'
+        completedDate: '',
+        deadline: '1928-02-29'
     },
     {
         item: 'Understand Quantum Mechanics',
         completed: true,
         id: 4023748374,
-        deadline: 'May 28, 2019'
+        completedDate: '2019-05-27',
+        deadline: '2019-05-28'
     },
     {
         item: 'Job Hunting',
         completed: false,
         id: 3246546524,
-        deadline: 'December 31, 2019'
+        completedDate: '',
+        deadline: '2019-12-31'
     },
 ]}
 
@@ -33,6 +39,7 @@ export const reducer = (state, action) => {
                 item: action.payload,
                 completed: false,
                 id: Date.now(),
+                completedDate: '',
                 deadline: 'December 31, 2019' // Placeholder until a drop system is implemented in form
             }
             return {
@@ -44,7 +51,11 @@ export const reducer = (state, action) => {
             return {
                 ...state, 
                 tasks: state.tasks.map(item => {
-                    if (action.payload === item.id) return {...item, completed: !item.completed}
+                    if (action.payload === item.id) return {
+                        ...item,
+                        completed: !item.completed,
+                        completedDate: !item.completed ? moment().format('MMMM D, YYYY') : ''
+                    }
                     else return item
                 })
             }

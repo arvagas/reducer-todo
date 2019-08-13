@@ -13,9 +13,14 @@ const Todo = ({ task, toggleItem, currentDate }) => {
                 >
                     {task.item} {(!task.completed && (moment(task.deadline) <= currentDate)) ? <span className='overdue'>- OVERDUE!</span> : ''}
                 </List.Header>
-                <List.Description>Deadline: {moment(task.deadline).format('MMMM D, YYYY')}</List.Description>
+                <List.Description>
+                    Deadline: {moment(task.deadline).format('MMMM D, YYYY')}
+                </List.Description>
                 <List.Description>
                     Completed: {task.completedDate !== '' ? moment(task.completedDate).format('MMMM D, YYYY') : ''}
+                </List.Description>
+                <List.Description>
+                    Tags: {task.tags.map(tag => <span className='tag'>{tag}</span>)}
                 </List.Description>
             </List.Content>
         </List.Item>

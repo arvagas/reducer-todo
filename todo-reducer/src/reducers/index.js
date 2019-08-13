@@ -7,28 +7,32 @@ export const initialState = {
         completed: false,
         id: 3892987589,
         completedDate: '',
-        deadline: '2019-08-13'
+        deadline: '2019-08-13',
+        tags: ['react', 'reducers']
     },
     {
         item: 'Summon Cthulu',
         completed: false,
         id: 5037583920,
         completedDate: '',
-        deadline: '1928-02-29'
+        deadline: '1928-02-29',
+        tags: ['supernatural', 'uh-oh']
     },
     {
         item: 'Understand Quantum Mechanics',
         completed: true,
         id: 4023748374,
         completedDate: '2019-05-27',
-        deadline: '2019-05-28'
+        deadline: '2019-05-28',
+        tags: ['quantum', 'math', 'easy']
     },
     {
         item: 'Job Hunting',
         completed: false,
         id: 3246546524,
         completedDate: '',
-        deadline: '2019-12-31'
+        deadline: '2019-12-31',
+        tags: ['software', 'developer', 'full-stack']
     },
 ]}
 
@@ -40,7 +44,8 @@ export const reducer = (state, action) => {
                 completed: false,
                 id: Date.now(),
                 completedDate: '',
-                deadline: 'December 31, 2019' // Placeholder until a drop system is implemented in form
+                deadline: 'December 31, 2019', // Placeholder until a drop system is implemented in form
+                tags: 'placeholder'
             }
             return {
                 ...state, 

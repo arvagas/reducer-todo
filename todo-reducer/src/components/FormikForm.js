@@ -10,7 +10,7 @@ const AddTodo = ({  }) => {
             </label>
 
             <button type='submit'>Add New</button>
-            <button>Clear Completed</button>
+            <button type='button'>Clear Completed</button>
         </Form>
     )
 }
@@ -22,8 +22,8 @@ const FormikForm = withFormik({
         }
     },
 
-    // handleSubmit(values, { resetForm, setErrors, setSubmitting, setStatus }) {
-    handleSubmit({ resetForm, setSubmitting }) {
+    handleSubmit(values, { props, resetForm, setSubmitting }) {
+        props.dispatch({type: 'ADD', payload: values.todo})
         resetForm()
         setSubmitting(false)
     }

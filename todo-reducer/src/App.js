@@ -10,7 +10,8 @@ function App() {
 
   return (
     <div>
-      <FormikForm />
+      {/* {console.log(state)} */}
+      <FormikForm dispatch={dispatch}/>
       <TodoList taskList={state} dispatch={dispatch}/>
     </div>
   )

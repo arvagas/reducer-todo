@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Field, withFormik } from 'formik'
 
-const AddTodo = ({ clearCompleted }) => {
+const TodoForm = ({ clearCompleted }) => {
     return (
         <Form>
             <label>
@@ -27,6 +27,6 @@ const FormikForm = withFormik({
         resetForm()
         setSubmitting(false)
     }
-})(AddTodo)
+})(TodoForm)
 
 export default FormikForm

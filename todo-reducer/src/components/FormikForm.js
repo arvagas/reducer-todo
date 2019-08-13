@@ -6,7 +6,7 @@ const TodoForm = ({ clearCompleted }) => {
         <Form style={{alignSelf:'center', margin:'2rem 0px'}}>
             <label>
                 Add new task:
-                <Field type='text' name='todo' placeholder='Ex: Fold Laundry'/>
+                <Field type='text' name='todo' placeholder='Ex: Fold Laundry' required/>
             </label>
 
             <button type='submit'>Add New</button>

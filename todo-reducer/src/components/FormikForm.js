@@ -11,7 +11,6 @@ const AddTodo = ({ dispatch }) => {
 
             <button type='submit'>Add New</button>
             <button type='button' onClick={() => dispatch({ type: 'CLEAR_COMPLETED' })}>Clear Completed</button>
-
         </Form>
     )
 }

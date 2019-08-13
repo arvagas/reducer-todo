@@ -29,13 +29,22 @@ export const reducer = (state, action) => {
                 ...state, 
                 tasks: [...state.tasks, newItem]
             }
+
         case 'TOGGLE_ITEM':
-            return state
+            return {
+                ...state, 
+                tasks: state.tasks.map(item => {
+                    if (action.payload === item.id) return {...item, completed: !item.completed}
+                    else return item
+                })
+            }
+
         case 'CLEAR_COMPLETED':
             return {
                 ...state,
                 tasks: state.tasks.filter(item => !item.completed)
             }
+
         default:
             return state
     }

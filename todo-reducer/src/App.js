@@ -5,6 +5,8 @@ import { reducer, initialState } from './reducers/index'
 import TodoList from './components/todo/TodoList'
 import FormikForm from './components/FormikForm'
 
+import './App.css'
+
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
 

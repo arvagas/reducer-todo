@@ -10,6 +10,7 @@ const Todo = ({ task, toggleItem, currentDate }) => {
                 <List.Header
                     className={!task.completed ? '' : 'todo-complete'}
                     onClick={() => toggleItem(task)}
+                    style={{cursor:'pointer'}}
                 >
                     {task.item} {(!task.completed && (moment(task.deadline) <= currentDate)) ? <span className='overdue'>- OVERDUE!</span> : ''}
                 </List.Header>
@@ -20,7 +21,9 @@ const Todo = ({ task, toggleItem, currentDate }) => {
                     Completed: {task.completedDate !== '' ? moment(task.completedDate).format('MMMM D, YYYY') : ''}
                 </List.Description>
                 <List.Description>
-                    Tags: {task.tags.map(tag => <span className='tag'>{tag}</span>)}
+                    Tags: {task.tags.map((tag,index) =>
+                        <span key={`${task.id}${index}`} className='tag'>{tag}</span>
+                    )}
                 </List.Description>
             </List.Content>
         </List.Item>

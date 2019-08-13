@@ -45,7 +45,7 @@ export const reducer = (state, action) => {
                 id: Date.now(),
                 completedDate: '',
                 deadline: 'December 31, 2019', // Placeholder until a drop system is implemented in form
-                tags: 'placeholder'
+                tags: ['placeholder']
             }
             return {
                 ...state, 

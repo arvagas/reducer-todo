@@ -3,7 +3,7 @@ import { Form, Field, withFormik } from 'formik'
 
 const TodoForm = ({ clearCompleted }) => {
     return (
-        <Form>
+        <Form style={{alignSelf:'center', margin:'2rem 0px'}}>
             <label>
                 Add new task:
                 <Field type='text' name='todo' placeholder='Ex: Fold Laundry'/>

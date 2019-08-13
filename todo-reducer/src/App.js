@@ -24,8 +24,7 @@ function App() {
   }
 
   return (
-    <div>
-      {/* {console.log(state)} */}
+    <div className='container'>
       <FormikForm addItem={addItem} clearCompleted={clearCompleted} />
       <TodoList taskList={state} toggleItem={toggleItem}/>
     </div>
